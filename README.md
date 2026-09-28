@@ -130,16 +130,16 @@ Answer / recommendation / tool action
 New interaction → new memory in Hindsight → agent becomes increasingly knowledgeable
 ```
 
-## Demo Mode
+## Demo Sandbox & Pipeline Seeder
 
-The application includes a **Demo Page** (accessible from the left nav) that loads a realistic Acme Technologies deal with 5 historical interactions already retained in Hindsight. Buttons allow:
+The application includes a **Demo Sandbox** (accessible from the left nav) that provisions realistic enterprise deals with historical interactions already retained in Hindsight. Options allow:
 
-- **[Load Acme Demo]** — wipes the DB and seeds Acme + retains 5 interactions
-- **[Ask DealMind]** — query the agent (brief, objections, strategy, history, follow‑up, risk)
-- **[Add Meeting]** — log a new interaction (extracts + retains)
-- **[Show Memories]** — lists Hindsight memories for the deal
-- **[Generate Meeting Brief]** — asks the agent for a meeting briefing
-- **[Generate Follow‑up]** — asks for a follow‑up email
+- **[Load Acme Demo (Solo)]** — wipes the DB and seeds Acme Technologies + retains 5 interactions in Hindsight.
+- **[Seed All 8 Pipeline Deals]** — provisions all 8 diverse enterprise deals (FinTech, Cybersecurity, Aerospace, Healthcare, Logistics) with dedicated Hindsight memory banks.
+- **[Reset All Deals & Banks]** — wipes MongoDB and safely clears the cloud memory banks.
+- **[Ask DealMind]** — query the agent (brief, objections, strategy, history, follow‑up, risk).
+- **[Add Meeting]** — log a new interaction (extracts structured facts + retains raw note).
+- **[Show Memories]** — lists and searches Hindsight memories for any deal.
 
 ## Acceptance Test (proves memory works)
 

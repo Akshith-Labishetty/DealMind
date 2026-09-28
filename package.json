@@ -1,0 +1,12 @@
+{
+  "name": "dealmind-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DealMind — AI Sales Deal Intelligence Agent with Hindsight Persistent Memory",
+  "scripts": {
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "seed": "npm --prefix backend run seed",
+    "test": "npm --prefix backend test"
+  }
+}

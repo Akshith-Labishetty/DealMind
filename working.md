@@ -15,6 +15,7 @@ This is **DealMind**, a hackathon project: an AI sales-deal assistant that gives
 
 ```
 hackwith/
+├── package.json            ← root convenience scripts: npm run seed, npm run test
 ├── .env                    ← REAL secrets (HINDSIGHT_API_KEY, GROQ_API_KEY). Git-ignore material.
 ├── .env.example            ← placeholder template (the real keys that were here are gone — rotate them)
 ├── README.md               ← project pitch, architecture diagram, acceptance test
@@ -25,9 +26,10 @@ hackwith/
 │   ├── server.log          ← captured stdout from a previous run
 │   ├── server.err.log      ← captured stderr
 │   ├── tests/
-│   │   └── run-tests.js    ← 20 unit tests (no network / no Mongo / no keys)
+│   │   └── run-tests.js    ← 29 unit tests (no network / no Mongo / no keys)
 │   ├── scripts/
-│   │   └── smoke-hindsight.mjs   ← standalone Hindsight connectivity test
+│   │   ├── smoke-hindsight.mjs   ← standalone Hindsight connectivity test
+│   │   └── verify-memories.mjs   ← queries live memories across all 8 deals in Hindsight Cloud
 │   └── src/
 │       ├── index.js        ← app bootstrap: cors → bodyParser → request log → /api router → error handler
 │       ├── config.js       ← loads root .env + backend/.env, normalizes keys, exports `config`
@@ -272,6 +274,7 @@ Lazy singleton `HindsightClient`. Every function returns a **structured result**
 | GET | `/api/deals/:id/memories` | all Hindsight memories for the deal |
 | POST | `/api/deals/:id/memories/search` | live recall demo |
 | POST | `/api/demo/load` | wipe DB **and reset the memory banks** → create the Acme deal → **5 interactions**, each extracted + retained (idempotent, never duplicates memories) |
+| POST | `/api/demo/load-all` | wipe DB **and reset memory banks** → seed **all 8 enterprise pipeline deals** across FinTech, SecOps, Aerospace, Healthcare, etc. with full Hindsight memory banks |
 | POST | `/api/demo/reset` | wipe all deals/interactions/activities **and their memory banks** |
 
 Error shape everywhere: `{ error: { message, code } }`.
@@ -299,7 +302,7 @@ Error shape everywhere: `{ error: { message, code } }`.
 
 **`AddInteraction.jsx`** — form (date, type, participants, notes) posted as **`application/x-www-form-urlencoded`** (that's why the backend mounts `bodyParser.urlencoded`) → then `navigate('/deal/:id')`.
 
-**`DemoPage.jsx`** — button → `POST /demo/load` → shows the created deal, interaction count and any warnings → link to the deal.
+**`DemoPage.jsx`** — buttons for **Load Acme Demo (Solo)** (`POST /demo/load`) and **Seed All 8 Pipeline Deals** (`POST /demo/load-all`), plus full DB & Hindsight memory bank reset with confirmation.
 
 **`lib/markdown.js`** — deliberately tiny: HTML-escapes input first (so LLM output can't inject markup), then handles `#/##/###` headings, `-`/`*` lists, `**bold**`, paragraphs. This is why `dangerouslySetInnerHTML` is safe-ish here.
 
@@ -322,8 +325,11 @@ cd frontend
 npm install
 npm run dev            # vite → http://localhost:5173 (proxies /api → :4000)
 
-# Optional data
-cd backend && npm run seed      # wipes Mongo, seeds Acme + other deals, retains to Hindsight
+# Data Seeding (wipes Mongo, seeds all 8 enterprise pipeline deals, retains to Hindsight)
+npm run seed                 # or: cd backend && npm run seed
+
+# Verify live memories across all 8 deals in Hindsight Cloud
+node backend/scripts/verify-memories.mjs
 
 # Unit tests (fast, offline — no Mongo, no API keys)
 cd backend && npm test          # 29 tests: validation, extraction, merge, health, modes, serialisers,
