@@ -100,12 +100,12 @@ PORT=4000
 
 ```mermaid
 flowchart TD
-    A[Sales Representative] -->|UI interactions| B[DealMind Frontend (React + Vite)]
-    B -->|REST API (JSON)| C[DealMind Backend (Node + Express)]
-    C -->|MongoDB CRUD| D[(MongoDB)]
-    C -->|Hindsight SDK| E[Hindsight Cloud (api.hindsight.vectorize.io)]
+    A["Sales Representative"] -->|UI interactions| B["DealMind Frontend (React + Vite)"]
+    B -->|REST API (JSON)| C["DealMind Backend (Node + Express)"]
+    C -->|MongoDB CRUD| D[("MongoDB")]
+    C -->|Hindsight SDK| E["Hindsight Cloud (api.hindsight.vectorize.io)"]
     E -->|Fact extraction, entity graph, recall| C
-    C -->|Groq LLM| F[Groq (openai/gpt-oss-120b)]
+    C -->|Groq LLM| F["Groq (openai/gpt-oss-120b)"]
     F -->|Reasoned answer| C
     C -->|Structured answer| B
     style E fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
