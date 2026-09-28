@@ -126,6 +126,19 @@ router.post(
   })
 );
 
+/** POST /api/demo/load-all — seed all pipeline deals with full Hindsight memory banks */
+router.post(
+  '/demo/load-all',
+  asyncHandler(async (req, res) => {
+    const results = await seedAll({ wipe: true });
+    res.json({
+      ok: true,
+      dealsCount: results.length,
+      deals: results
+    });
+  })
+);
+
 /** POST /api/demo/reset — remove all deals, interactions, activity and memories. */
 router.post(
   '/demo/reset',
