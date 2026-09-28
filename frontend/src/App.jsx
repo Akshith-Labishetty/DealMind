@@ -6,6 +6,7 @@ import DealDetail from './pages/DealDetail.jsx';
 import AddInteraction from './pages/AddInteraction.jsx';
 import DemoPage from './pages/DemoPage.jsx';
 import NotFound from './pages/NotFound.jsx';
+import logoImg from './assets/logo.png';
 
 const NAV = [
   {
@@ -141,16 +142,24 @@ export default function App() {
   return (
     <div className="shell">
       <aside className="sidebar">
-        {/* Brand Header */}
-        <div className="sidebar-logo">
-          <div className="sidebar-logo-icon">🧠</div>
-          <div>
-            <div style={{ fontWeight: 800, fontSize: '1.15rem', letterSpacing: '-0.02em', color: '#fff' }}>
-              DealMind
-            </div>
-            <div style={{ fontSize: '0.68rem', color: '#94a3b8', fontWeight: 500 }}>
-              Persistent Memory Agent
-            </div>
+        {/* Brand Header Logo */}
+        <div className="sidebar-logo" style={{ padding: '1.25rem 1.25rem 1rem', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+          <Link to="/" style={{ textDecoration: 'none', display: 'block', width: '100%' }} title="DealMind Home">
+            <img
+              src={logoImg}
+              alt="DealMind"
+              style={{
+                width: '100%',
+                maxHeight: '70px',
+                objectFit: 'contain',
+                objectPosition: 'left center',
+                borderRadius: '0.5rem',
+                display: 'block',
+              }}
+            />
+          </Link>
+          <div style={{ fontSize: '0.68rem', color: '#94a3b8', fontWeight: 500, marginTop: '0.4rem', paddingLeft: '0.15rem' }}>
+            Persistent Memory Agent
           </div>
         </div>
 
