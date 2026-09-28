@@ -98,18 +98,32 @@ PORT=4000
 
 ![DealMind Architecture](architecture.jpg)
 
-```mermaid
-flowchart TD
-    A["Sales Representative"] -->|UI interactions| B["DealMind Frontend (React + Vite)"]
-    B -->|REST API (JSON)| C["DealMind Backend (Node + Express)"]
-    C -->|MongoDB CRUD| D[("MongoDB")]
-    C -->|Hindsight SDK| E["Hindsight Cloud (api.hindsight.vectorize.io)"]
-    E -->|Fact extraction, entity graph, recall| C
-    C -->|Groq LLM| F["Groq (openai/gpt-oss-120b)"]
-    F -->|Reasoned answer| C
-    C -->|Structured answer| B
-    style E fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    style F fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+```text
+┌──────────────────────────────────────────────────────────────────┐
+│                      Sales Representative                        │
+└─────────────────────────────────┬────────────────────────────────┘
+                                  │ (UI Interactions & Copilot Chat)
+                                  ▼
+┌──────────────────────────────────────────────────────────────────┐
+│              DealMind Frontend (React 19 + Vite)                 │
+│   • Deal Intelligence Table          • AI Copilot Chat Drawer    │
+│   • Deal Health Analysis & Risk      • Live Signal Timeline      │
+└─────────────────────────────────┬────────────────────────────────┘
+                                  │ REST API (JSON / HTTP)
+                                  ▼
+┌──────────────────────────────────────────────────────────────────┐
+│               DealMind Backend (Node.js + Express)               │
+│   • Interaction Pipeline             • Memory Bank Manager       │
+│   • Deal Health Scoring Engine       • Multi-source Synthesizer  │
+└───────────┬─────────────────────┼────────────────────┬───────────┘
+            │                     │                    │
+            │ CRUD Operations     │ Retain / Recall    │ Completions & Reasoning
+            ▼                     ▼                    ▼
+┌───────────────────────┐ ┌───────────────────┐ ┌───────────────────────┐
+│        MongoDB        │ │  Hindsight Cloud  │ │       Groq LLM        │
+│ Deals & Interaction   │ │ Isolated Bank per │ │ (openai/gpt-oss-120b) │
+│ Structured Signals    │ │ Deal Entity Graph │ │ Fast Inference Engine │
+└───────────────────────┘ └───────────────────┘ └───────────────────────┘
 ```
 
 ## Memory Flow
