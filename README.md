@@ -20,6 +20,7 @@ Unlike a generic chatbot, DealMind’s core product is persistent deal memory: t
 6. **Retrieve relevant memories** from Hindsight — visible in a “Memories Used” panel
 7. **Generate personalized recommendations** and follow‑up emails — grounded in actual remembered data
 8. **See the evolution of the deal** over time via a visual timeline
+9. **Floating DealMind Chat** — draggable header to reposition anywhere on screen, with one-click enlarge/decrease buttons, step zoom (`-`/`+`), and corner resize handles
 
 ## Hindsight Integration
 
@@ -131,9 +132,9 @@ New interaction → new memory in Hindsight → agent becomes increasingly knowl
 
 ## Demo Mode
 
-The application includes a **Demo Bar** (accessible from the left nav) that loads a realistic Acme Technologies deal with 4 historical interactions already retained in Hindsight. Buttons allow:
+The application includes a **Demo Page** (accessible from the left nav) that loads a realistic Acme Technologies deal with 5 historical interactions already retained in Hindsight. Buttons allow:
 
-- **[Load Acme Demo]** — wipes the DB and seeds Acme + retains 4 interactions
+- **[Load Acme Demo]** — wipes the DB and seeds Acme + retains 5 interactions
 - **[Ask DealMind]** — query the agent (brief, objections, strategy, history, follow‑up, risk)
 - **[Add Meeting]** — log a new interaction (extracts + retains)
 - **[Show Memories]** — lists Hindsight memories for the deal
@@ -198,8 +199,11 @@ dealmind/
 │   │   │   ├── AddInteraction.jsx
 │   │   │   └── NotFound.jsx
 │   │   ├── components/
-│   │   │   ├── AiAssistant.jsx
-│   │   │   ├── ModeButtons.jsx
+│   │   │   ├── AiAssistant.jsx   # Dedicated AI tab with side-by-side memory compare
+│   │   │   ├── ChatWidget.jsx    # Draggable, resizable floating deal chat
+│   │   │   ├── MemoriesPanel.jsx # Retrieved memories chips with citation tags
+│   │   │   ├── ModeButtons.jsx   # Preset mode buttons + memory toggles
+│   │   │   ├── StatCard.jsx      # Dashboard metrics tile
 │   │   │   └── DemoBar.jsx
 │   │   └── index.css           # Tailwind + custom theming
 │   ├── package.json

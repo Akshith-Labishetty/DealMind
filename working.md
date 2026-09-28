@@ -70,7 +70,7 @@ hackwith/
         │   └── NotFound.jsx
         └── components/
             ├── AiAssistant.jsx   ← question box + preset modes + compare-with/without-memory
-            ├── ChatWidget.jsx    ← floating 💬 chat bubble (bottom-right)
+            ├── ChatWidget.jsx    ← floating 💬 chat (draggable header, enlarge/decrease controls)
             ├── ModeButtons.jsx   ← preset question buttons + "Use Hindsight memory" checkbox
             ├── MemoriesPanel.jsx ← "🧠 Memories used" chips
             ├── StatCard.jsx      ← dashboard KPI tile
@@ -295,7 +295,7 @@ Error shape everywhere: `{ error: { message, code } }`.
 
 **`AiAssistant.jsx`** — `ModeButtons` (6 preset questions + editable textarea + "Use Hindsight memory" checkbox + **Run** + **⚖ Compare w/ & w/o memory**). Compare fires two `/ask` calls in parallel (`useMemory: true` and `false`) and renders them side by side — this is the demo's "before vs after memory" proof. Answer is rendered through `mdToHtml` into `dangerouslySetInnerHTML`.
 
-**`ChatWidget.jsx`** — fixed floating 💬 button bottom-right; same `/ask` endpoint; Enter-to-send; shows `MemoriesPanel`.
+**`ChatWidget.jsx`** — floating 💬 chat assistant with draggable top header (drag left/right across screen), one-click Enlarge/Decrease toggle, `−`/`+` step zoom controls, and a corner resize handle; same `/ask` endpoint; Enter-to-send; shows `MemoriesPanel`.
 
 **`AddInteraction.jsx`** — form (date, type, participants, notes) posted as **`application/x-www-form-urlencoded`** (that's why the backend mounts `bodyParser.urlencoded`) → then `navigate('/deal/:id')`.
 
