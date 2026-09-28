@@ -178,5 +178,111 @@ export const OTHER_DEALS = [
         notes: `Pilot environment walkthrough went well. Clinic IT wants SSO via Azure AD (we support SAML). No pricing objection raised; Naomi asked for a pilot success report template to present to their board.`
       }
     ]
+  },
+  {
+    company: 'Finovate Core',
+    industry: 'FinTech & Core Banking',
+    contactName: 'Marcus Vance',
+    contactRole: 'VP Engineering & Infrastructure',
+    title: 'Real-Time Transaction Intelligence Pipeline',
+    plan: 'Enterprise',
+    value: 145000,
+    stage: 'Proposal',
+    summary:
+      'High-value FinTech deal to modernize transaction ledger monitoring across 8 regional banking networks. Sub-10ms latency and strict PCI-DSS audit trails are critical non-negotiables.',
+    nextMeetingAt: '2026-10-04T13:30:00.000Z',
+    interactions: [
+      {
+        date: '2026-09-07',
+        type: 'Discovery',
+        participants: ['Marcus Vance (VP Engineering)', 'Elena Thorne (Principal Architect)'],
+        notes: `Discovery with Finovate Core. Marcus outlined their pain with legacy batch reconciliation: transaction discrepancies take up to 24 hours to flag. They require real-time webhook ingestion and sub-10ms event processing. Evaluating Enterprise tier with custom dedicated compute. Budget estimated at $130k-$160k. Competitor Confluent was evaluated but discarded due to managed ops complexity.`
+      },
+      {
+        date: '2026-09-14',
+        type: 'Technical',
+        participants: ['Elena Thorne (Principal Architect)', 'Finovate SecOps Team'],
+        notes: `Architecture review. Tested synthetic 50,000 evt/sec throughput. Benchmarks satisfied Elena: average processing latency clocked at 6.8ms. Crucial requirement: audit logs must be immutable and exportable to AWS S3 Object Lock. Raised PCI-DSS v4.0 requirement; confirmed our encryption at rest satisfies requirements.`
+      },
+      {
+        date: '2026-09-21',
+        type: 'Commercial',
+        participants: ['Marcus Vance', 'Rachel Green (Head of Procurement)'],
+        notes: `Proposal presentation at $145,000/yr on a 2-year commitment. Rachel requested quarterly payment milestones tied to integration milestones rather than upfront annual payment. Marcus supported our pricing but noted Finance wants an SLA guarantee of 99.99% uptime with financial penalties for breach.`
+      }
+    ]
+  },
+  {
+    company: 'CyberShield Defense',
+    industry: 'Cybersecurity & SecOps',
+    contactName: 'Dr. Leanne Zhao',
+    contactRole: 'Chief Information Security Officer',
+    title: 'Threat Intelligence Automation Engine',
+    plan: 'Enterprise',
+    value: 84000,
+    stage: 'Technical Evaluation',
+    summary:
+      'Enterprise security operations evaluation. Dr. Zhao seeks to automate tier-1 alert triage across 1,200 endpoints. Data sovereignty and air-gapped private VPC connectivity are the key technical gates.',
+    nextMeetingAt: '2026-10-03T16:00:00.000Z',
+    interactions: [
+      {
+        date: '2026-09-06',
+        type: 'Discovery',
+        participants: ['Dr. Leanne Zhao (CISO)', 'Tariq Al-Mansoor (SOC Lead)'],
+        notes: `Initial triage meeting. CyberShield SOC analysts are overwhelmed with 4,000+ daily alerts across CrowdStrike and Splunk. Seeking intelligent alert correlation and automatic context enrichment. Dr. Zhao stressed that no telemetry data can leave their EU and US residency zones.`
+      },
+      {
+        date: '2026-09-13',
+        type: 'Security',
+        participants: ['Dr. Leanne Zhao (CISO)', 'Security Architecture Board'],
+        notes: `Security review focused on data privacy. Reviewed AWS PrivateLink integration so traffic never traverses the public internet. Board expressed satisfaction with zero-retention logging options for PII payloads. SOC 2 Type II and ISO 27001 certificates delivered.`
+      },
+      {
+        date: '2026-09-20',
+        type: 'Technical',
+        participants: ['Tariq Al-Mansoor (SOC Lead)', 'Automation Engineers'],
+        notes: `Hands-on sandbox evaluation. Connected simulated Splunk alert feed. SOC team confirmed 62% reduction in false-positive escalations during tests. Tariq requested documentation for custom Python SDK hooks. Target rollout date: late November.`
+      }
+    ]
+  },
+  {
+    company: 'AeroLogix Global',
+    industry: 'Aerospace & Supply Chain',
+    contactName: 'Carlos Mendez',
+    contactRole: 'VP Supply Chain Transformation',
+    title: 'Global Avionics Asset Intelligence',
+    plan: 'Enterprise',
+    value: 210000,
+    stage: 'Negotiation',
+    summary:
+      'Largest pipeline opportunity ($210k ARR). Evaluated to optimize replacement part logistics across 32 international MRO maintenance hubs. Strong technical fit, but procurement is aggressively pushing for concessions.',
+    nextMeetingAt: '2026-09-29T18:00:00.000Z',
+    interactions: [
+      {
+        date: '2026-09-02',
+        type: 'Discovery',
+        participants: ['Carlos Mendez (VP)', 'Sven Lindqvist (Global Fleet Ops)'],
+        notes: `Discovery with AeroLogix leadership. Aircraft on Ground (AOG) downtime costs them up to $150k/hour. Seeking predictive supply routing to position replacement turbofans and hydraulic actuators before scheduled maintenance. Current tool is a custom legacy SAP build.`
+      },
+      {
+        date: '2026-09-10',
+        type: 'Technical',
+        participants: ['Sven Lindqvist', 'SAP Integration Team'],
+        notes: `Technical architecture workshop. Validated SAP S/4HANA bidirectional sync through REST APIs. SAP team raised concerns about batch sync intervals causing stale inventory counts. We demonstrated real-time CDC (change data capture) support, which resolved their hesitation.`
+      },
+      {
+        date: '2026-09-18',
+        type: 'Commercial',
+        participants: ['Carlos Mendez', 'Victoria Sterling (Global Procurement VP)'],
+        notes: `Intense commercial session. Victoria stated that competitor Celonis submitted a competing proposal with 25% lower licensing fees. Carlos reaffirmed that our solution offers superior real-time alerts. Victoria insisted on a revised offer of $190k or inclusion of 24/7 dedicated support tiers.`
+      },
+      {
+        date: '2026-09-25',
+        type: 'Follow-up',
+        participants: ['Carlos Mendez (VP)'],
+        notes: `Private 1-on-1 with Carlos. Carlos gave guidance: if we can hold at $200k and include our Gold SLA package with dedicated engineering onboarding, he can push it through the executive committee before Q3 fiscal close. Preparing final counter-proposal.`
+      }
+    ]
   }
 ];
+
