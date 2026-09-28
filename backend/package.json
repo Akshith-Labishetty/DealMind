@@ -1,0 +1,23 @@
+{
+  "name": "dealmind-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "DealMind - AI Sales Deal Intelligence Agent (backend)",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "seed": "node src/seed/seed.js",
+    "test": "node tests/run-tests.js",
+    "verify": "node tests/acceptance.js"
+  },
+  "dependencies": {
+    "@vectorize-io/hindsight-client": "^0.10.1",
+    "body-parser": "^2.3.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.0"
+  }
+}

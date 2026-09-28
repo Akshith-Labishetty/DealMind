@@ -1,0 +1,4 @@
+DealMind API listening on http://localhost:4000
+  MongoDB : connected (mongodb://127.0.0.1:27017/dealmind)
+  LLM     : openai/gpt-oss-120b @ https://api.groq.com/openai/v1
+  Memory  : Hindsight @ https://api.hindsight.vectorize.io
