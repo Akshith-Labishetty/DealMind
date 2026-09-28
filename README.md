@@ -95,9 +95,6 @@ PORT=4000
 ```
 
 ## Architecture Diagram
-
-![DealMind Architecture](architecture.jpg)
-
 ```text
 ┌──────────────────────────────────────────────────────────────────┐
 │                      Sales Representative                        │
