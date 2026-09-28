@@ -65,9 +65,6 @@ export default function AddInteraction() {
         <h1 style={{ margin: 0, fontSize: '1.75rem', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.02em' }}>
           Log Customer Interaction
         </h1>
-        <p style={{ margin: '0.35rem 0 0 0', color: '#64748b', fontSize: '0.9rem', lineHeight: 1.5 }}>
-          Raw conversation notes are simultaneously ingested into <strong>MongoDB</strong> (structured state), analyzed by the <strong>Groq LLM</strong> (signal extraction), and retained in <strong>Hindsight</strong> (knowledge graph memory).
-        </p>
       </div>
 
       {error && (
