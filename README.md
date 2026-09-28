@@ -96,6 +96,8 @@ PORT=4000
 
 ## Architecture Diagram
 
+![DealMind Architecture](architecture.jpg)
+
 ```mermaid
 flowchart TD
     A[Sales Representative] -->|UI interactions| B[DealMind Frontend (React + Vite)]
